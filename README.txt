@@ -14,7 +14,8 @@ This project demonstrates how to use `millis()`, digital I/O, and button input t
 | Arduino Uno      | 1        | Main microcontroller board             |
 | Breadboard       | 1        | For circuit prototyping                |
 | Push Button      | 1        | User input to trigger LED change       |
-| LEDs (Red, Yellow, Green) | 3 | Visual indicators                      |
+| LEDs 
+(Red,Yellow,Green) | 3 	      | Visual indicators                      |
 | 220Ω Resistors   | 3        | Current limiting for LEDs              |
 | Jumper Wires     | ~10      | Connections between components         |
 
@@ -62,3 +63,25 @@ void loop() {
     digitalWrite(8, HIGH);
   }
 }
+
+🧪 7. Testing and Validation
+Test Case			Expected Behavior	    				Status
+Power on			Green LED ON						✅
+Button press			After 2s, Red & Yellow ON				✅
+No button press			No change, Green LED remains ON				✅
+Button held continuously	Only one 2s cycle triggered per press			✅
+
+🐞 8. Known Issues
+No software debounce logic; multiple fast presses could be misread.
+
+delay(1000) blocks the system momentarily. A future improvement could use non-blocking timers 	instead.
+
+🔧 9. Future Work
+Add debounce logic using software or hardware.
+
+Replace delay() with non-blocking timing.
+
+Add serial monitoring to log events.
+
+Expand to handle multiple buttons/LED patterns.
+
